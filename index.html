@@ -65,7 +65,7 @@
 
     /* Hero: the title art carries the game's name */
     .hero { background: var(--sky); }
-    .hero img { width: 100%; height: auto; aspect-ratio: 2778 / 1284; object-fit: cover; }
+    .hero img { width: 100%; height: auto; aspect-ratio: 1586 / 992; max-height: 82vh; object-fit: cover; object-position: center top; }
     .hero-band {
       background: linear-gradient(180deg, var(--wood) 0%, var(--wood-dark) 100%);
       color: #fff;
@@ -176,8 +176,8 @@
   <main id="top">
     <div class="hero">
       <h1 class="visually-hidden">TJ's Great Adventure</h1>
-      <img src="images/hero-2000.jpg"
-           srcset="images/hero-1200.jpg 1200w, images/hero-2000.jpg 2000w"
+      <img src="images/hero-1586.jpg"
+           srcset="images/hero-1200.jpg 1200w, images/hero-1586.jpg 1586w"
            sizes="100vw"
            alt="TJ, a small boy with a backpack, looks out from under a tree over a vast land of jungles, waterfalls, a village, a castle and snowy mountains.">
     </div>
@@ -297,6 +297,7 @@
   <footer>
     <img src="images/lilyleaf-logo.png" alt="Lily Leaf Studios" loading="lazy">
     <p>&copy; <span id="year">2026</span> Lily Leaf Studios. All rights reserved.</p>
+    <p>TJ's Great Adventure&trade; and Lily Leaf Studios&trade; are trademarks of Lily Leaf Studios.</p>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
