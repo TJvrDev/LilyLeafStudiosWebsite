@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TJ's Great Adventure</title>
-  <meta name="description" content="TJ's Great Adventure — a storybook chibi adventure through jungles, temples, pirate seas and a castle in the void. Coming to iPhone, iPad, Android and Meta Quest.">
+  <meta name="description" content="TJ's Great Adventure — a storybook chibi adventure through jungles, temples, pirate seas and a castle in the void. Coming to PlayStation, Xbox, Nintendo Switch, Steam, iPhone, iPad, Android and Meta Quest.">
   <meta property="og:title" content="TJ's Great Adventure">
-  <meta property="og:description" content="A storybook chibi adventure from Lily Leaf Studios. Coming to iPhone, iPad, Android and Meta Quest.">
+  <meta property="og:description" content="A storybook chibi adventure from Lily Leaf Studios. Coming to consoles, PC, mobile and Meta Quest.">
   <meta property="og:image" content="images/hero-1200.jpg">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -132,10 +132,12 @@
     /* Platforms */
     .platforms { background: var(--sky-deep); color: #fff; }
     .platforms h2 { color: #fff; }
-    .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 28px; }
+    .platform-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 28px; }
     .platform { background: rgba(255, 255, 255, .08); border: 2px solid rgba(255, 255, 255, .18); border-radius: var(--radius); padding: 24px; }
     .platform h3 { color: var(--gold); }
     .platform p { margin: 0; color: #dbe8f7; font-size: 1rem; }
+    .platform .kind { font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #9fc3ea; margin-bottom: 6px; }
+    .platform h3 { line-height: 1.3; }
 
     /* Footer */
     footer { background: #000; color: #bdb3a6; text-align: center; padding: 48px 20px; font-size: .95rem; }
@@ -278,14 +280,22 @@
         <h2>Coming soon</h2>
         <div class="platform-grid">
           <div class="platform">
-            <h3>iPhone &amp; iPad</h3>
-            <p>The full adventure with touch controls.</p>
+            <div class="kind">Consoles</div>
+            <h3>PlayStation<br>Xbox<br>Nintendo Switch</h3>
+            <p>The full adventure on the big screen, controller in hand.</p>
           </div>
           <div class="platform">
-            <h3>Android</h3>
-            <p>The full adventure on phones and tablets.</p>
+            <div class="kind">PC</div>
+            <h3>Steam</h3>
+            <p>The full adventure on your computer.</p>
           </div>
           <div class="platform">
+            <div class="kind">Mobile</div>
+            <h3>iPhone &amp; iPad<br>Android</h3>
+            <p>The full adventure on phones and tablets, with touch controls.</p>
+          </div>
+          <div class="platform">
+            <div class="kind">VR</div>
             <h3>Meta Quest</h3>
             <p>Watch the adventure from your seat in VR Theater mode, or step inside it in full VR.</p>
           </div>
