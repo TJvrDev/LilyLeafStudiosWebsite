@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TJ's Great Adventure</title>
+  <meta name="description" content="TJ's Great Adventure — a storybook chibi adventure through jungles, temples, pirate seas and a castle in the void. Coming to iPhone, iPad, Android and Meta Quest.">
+  <meta property="og:title" content="TJ's Great Adventure">
+  <meta property="og:description" content="A storybook chibi adventure from Lily Leaf Studios. Coming to iPhone, iPad, Android and Meta Quest.">
+  <meta property="og:image" content="images/hero-1200.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #2f80d6;
+      --sky-deep: #134a8c;
+      --wood: #6b3f1d;
+      --wood-dark: #3d2310;
+      --gold: #f6a91c;
+      --leaf: #4c8a2a;
+      --cream: #fff7e6;
+      --paper: #fffdf8;
+      --ink: #2b2118;
+      --ink-soft: #5c4e40;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    h1, h2, h3 { font-family: "Fredoka", "Nunito", sans-serif; line-height: 1.15; margin: 0 0 .5em; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); color: var(--wood); }
+    h3 { font-size: 1.25rem; color: var(--wood-dark); }
+    a { color: var(--sky-deep); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap;
+    }
+
+    /* Top bar */
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(61, 35, 16, .92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 1.1rem; }
+    .brand img { width: 36px; height: 36px; border-radius: 9px; }
+    .nav { display: flex; gap: 22px; }
+    .nav a { color: #fbe7c4; text-decoration: none; font-weight: 700; font-size: .95rem; }
+    .nav a:hover { color: var(--gold); }
+
+    /* Hero: the title art carries the game's name */
+    .hero { background: var(--sky); }
+    .hero img { width: 100%; height: auto; aspect-ratio: 2778 / 1284; object-fit: cover; }
+    .hero-band {
+      background: linear-gradient(180deg, var(--wood) 0%, var(--wood-dark) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 28px 20px 32px;
+      border-top: 4px solid var(--gold);
+    }
+    .hero-band p { margin: 0 auto 18px; max-width: 720px; font-size: clamp(1.05rem, 2.2vw, 1.3rem); }
+    .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--wood-dark);
+      font-family: "Fredoka", sans-serif;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 999px;
+      box-shadow: 0 4px 0 #b9760a;
+      text-decoration: none;
+    }
+
+    section { padding: 72px 0; }
+
+    /* About */
+    .about .wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; }
+    .about img { border-radius: 28px; box-shadow: 0 14px 40px rgba(43, 33, 24, .25); border: 6px solid #fff; }
+    .about p { color: var(--ink-soft); margin: 0 0 1em; }
+
+    /* Features */
+    .features { background: var(--paper); }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 28px; }
+    .card {
+      background: #fff;
+      border: 2px solid #f0e2c8;
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .card .icon { font-size: 2rem; line-height: 1; margin-bottom: 12px; }
+    .card p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+
+    /* Worlds */
+    .worlds { background: linear-gradient(180deg, #e9f4ff 0%, var(--cream) 100%); text-align: center; }
+    .worlds .lead { max-width: 640px; margin: 0 auto; color: var(--ink-soft); }
+    .world-grid {
+      list-style: none; padding: 0; margin: 36px 0 0;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px 16px;
+    }
+    .world-grid li { display: flex; flex-direction: column; align-items: center; gap: 10px; font-family: "Fredoka", sans-serif; font-weight: 600; color: var(--wood-dark); }
+    .world-grid img { width: 96px; height: 96px; filter: drop-shadow(0 6px 8px rgba(43, 33, 24, .25)); transition: transform .2s; }
+    .world-grid li:hover img { transform: translateY(-4px) rotate(-4deg); }
+
+    /* Platforms */
+    .platforms { background: var(--sky-deep); color: #fff; }
+    .platforms h2 { color: #fff; }
+    .platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 28px; }
+    .platform { background: rgba(255, 255, 255, .08); border: 2px solid rgba(255, 255, 255, .18); border-radius: var(--radius); padding: 24px; }
+    .platform h3 { color: var(--gold); }
+    .platform p { margin: 0; color: #dbe8f7; font-size: 1rem; }
+
+    /* Footer */
+    footer { background: #000; color: #bdb3a6; text-align: center; padding: 48px 20px; font-size: .95rem; }
+    footer img { width: 150px; margin: 0 auto 18px; }
+    footer p { margin: 4px 0; }
+
+    @media (max-width: 860px) {
+      .about .wrap { grid-template-columns: 1fr; gap: 28px; }
+      .about img { max-width: 360px; margin: 0 auto; }
+      .feature-grid, .platform-grid { grid-template-columns: 1fr 1fr; }
+      .world-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 17px; }
+      .nav { display: none; }
+      section { padding: 52px 0; }
+      .feature-grid, .platform-grid { grid-template-columns: 1fr; }
+      .world-grid img { width: 76px; height: 76px; }
+      .world-grid li { font-size: .9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top"><img src="images/favicon.png" alt="">TJ's Great Adventure</a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#worlds">Worlds</a>
+        <a href="#platforms">Platforms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <h1 class="visually-hidden">TJ's Great Adventure</h1>
+      <img src="images/hero-2000.jpg"
+           srcset="images/hero-1200.jpg 1200w, images/hero-2000.jpg 2000w"
+           sizes="100vw"
+           alt="TJ, a small boy with a backpack, looks out from under a tree over a vast land of jungles, waterfalls, a village, a castle and snowy mountains.">
+    </div>
+    <div class="hero-band">
+      <p>Grab your backpack. A whole world of jungles, temples, pirate seas and a castle in the void is waiting just past the garden fence.</p>
+      <a class="badge" href="#platforms">Coming soon</a>
+    </div>
+
+    <section id="about" class="about">
+      <div class="wrap">
+        <img src="images/tj.jpg" alt="TJ leaping through the air as his boomerang curves back toward him." width="720" height="720" loading="lazy">
+        <div>
+          <h2>Meet TJ</h2>
+          <p>TJ's Great Adventure is a storybook third-person adventure starring a small hero with a big backpack. Explore hand-crafted worlds packed with secrets, outsmart giant bosses, and collect the treasures that open the way forward.</p>
+          <p>Every corner of the map is built to be explored: swaying jungles, roaring rivers, lava-filled caverns, snowy peaks and a village full of friends who need your help.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="wrap">
+        <h2>What awaits</h2>
+        <div class="feature-grid">
+          <div class="card">
+            <div class="icon" aria-hidden="true">🪃</div>
+            <h3>Find legendary gear</h3>
+            <p>Earn a boomerang, a shield and a glider. Each one opens up new paths through worlds you thought you'd finished.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">🐉</div>
+            <h3>Face epic bosses</h3>
+            <p>A giant spider, a temple snake, a pirate crew and more. Every chapter builds to a showdown.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">🏡</div>
+            <h3>Build up the Village</h3>
+            <p>Make friends with the villagers, earn their trophies, and watch the Village come alive as your adventure grows.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">🏂</div>
+            <h3>Play the mini games</h3>
+            <p>Snowboard down the mountain, race a glider through rings over the lava, play volleyball and more.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">💎</div>
+            <h3>Fast travel</h3>
+            <p>Find the travel crystals to jump between worlds and go back for anything you missed.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">⭐</div>
+            <h3>Your kind of challenge</h3>
+            <p>Relax on Easy, or test yourself on Hard and Ultimate, where every hit counts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="worlds" class="worlds">
+      <div class="wrap">
+        <h2>Worlds to explore</h2>
+        <p class="lead">Small, hand-crafted lands, each with its own look, music and secrets.</p>
+        <ul class="world-grid">
+          <li><img src="images/worlds/village.png" alt="" loading="lazy">Village</li>
+          <li><img src="images/worlds/jungle.png" alt="" loading="lazy">Jungle</li>
+          <li><img src="images/worlds/river.png" alt="" loading="lazy">River</li>
+          <li><img src="images/worlds/river-temple.png" alt="" loading="lazy">River Temple</li>
+          <li><img src="images/worlds/mountain.png" alt="" loading="lazy">Mountain</li>
+          <li><img src="images/worlds/cave.png" alt="" loading="lazy">Cave</li>
+          <li><img src="images/worlds/snowy-peak.png" alt="" loading="lazy">Snowy Peak</li>
+          <li><img src="images/worlds/desert.png" alt="" loading="lazy">Desert</li>
+          <li><img src="images/worlds/aztec-temple.png" alt="" loading="lazy">Aztec Temple</li>
+          <li><img src="images/worlds/fire-temple.png" alt="" loading="lazy">Fire Temple</li>
+          <li><img src="images/worlds/fire-cavern.png" alt="" loading="lazy">Fire Cavern</li>
+          <li><img src="images/worlds/pirate.png" alt="" loading="lazy">Pirate Seas</li>
+          <li><img src="images/worlds/castle.png" alt="" loading="lazy">Castle</li>
+          <li><img src="images/worlds/void-castle.png" alt="" loading="lazy">Void Castle</li>
+          <li><img src="images/worlds/battle-tower.png" alt="" loading="lazy">Battle Tower</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="platforms" class="platforms">
+      <div class="wrap">
+        <h2>Coming soon</h2>
+        <div class="platform-grid">
+          <div class="platform">
+            <h3>iPhone &amp; iPad</h3>
+            <p>The full adventure with touch controls.</p>
+          </div>
+          <div class="platform">
+            <h3>Android</h3>
+            <p>The full adventure on phones and tablets.</p>
+          </div>
+          <div class="platform">
+            <h3>Meta Quest</h3>
+            <p>Watch the adventure from your seat in VR Theater mode, or step inside it in full VR.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="images/lilyleaf-logo.png" alt="Lily Leaf Studios" loading="lazy">
+    <p>&copy; <span id="year">2026</span> Lily Leaf Studios. All rights reserved.</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
